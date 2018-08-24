@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import gameoflife.model.Board?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+
+<VBox fx:controller = "gameoflife.controller.Controller" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<GridPane fx:id="toolbar">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" percentWidth="75" />
+				<ColumnConstraints hgrow="SOMETIMES" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<FlowPane styleClass="col-left" GridPane.columnIndex="0">
+					<children>
+						<Button fx:id="btnStart" onAction="#startAction">Start</Button>
+						<Button fx:id="btnStop" onAction="#stopAction" disable="true">Stop</Button>
+						<Button fx:id="btnNext" onAction="#nextIterationAction">Next</Button>
+						<Button fx:id="btnRand" onAction="#randCellAction">Random</Button>
+						<Button fx:id="btnClear" onAction="#clearAction">Clear</Button>
+						
+					</children>
+				</FlowPane>
+				<FlowPane styleClass="col-right" GridPane.columnIndex="1">
+					<children>
+						<VBox fx:id="boxBoardSize">
+							<children>
+								<Label styleClass="label-large">Size</Label>
+								<Slider fx:id="fieldBoardSize" blockIncrement="1"
+									majorTickUnit="10" min="0" max="50" />
+							</children>
+						</VBox>
+					</children>
+				</FlowPane>
+			</children>
+		</GridPane>
+		<ScrollPane styleClass="board-container">
+			<content>
+				<Board fx:id="board" />
+			</content>
+		</ScrollPane>
+	</children>
+</VBox>
